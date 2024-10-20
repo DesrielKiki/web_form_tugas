@@ -1,122 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Login - My Website</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="login-style.css" />
-  </head>
-  <body>
-    <div class="login-container">
-      <div class="login-box">
-        <h1>Register to My Website</h1>
-        <form name="loginForm" onsubmit="return submitLoginForm()">
-          <!-- Email -->
-          <div class="input-group">
-            <label for="email">Email address</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              required
-              placeholder="Enter your email"
-            />
-          </div>
+</head>
+<body>
+    <div class="login-container d-flex justify-content-center align-items-center vh-100 bg-light">
+        <div class="login-box bg-dark text-white p-4 rounded shadow" style="width: 400px;">
+            <h1 class="text-center mb-4">Register to My Website</h1>
+            <form name="loginForm" onsubmit="return submitLoginForm()">
+                <!-- Email -->
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="email" name="email" required placeholder="Enter your email" />
+                </div>
 
-          <!-- Password with Show/Hide -->
-          <div class="input-group">
-            <label for="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              required
-              placeholder="Enter your password"
-            />
-          </div>
+                <!-- Password with Show/Hide -->
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" required placeholder="Enter your password" />
+                    <div class="show-password-container mt-2">
+                        <input type="checkbox" id="show-password" onclick="togglePassword()" />
+                        <label for="show-password" class="ml-1">Show Password</label>
+                    </div>
+                </div>
 
-          <div class="show-password-container">
-            <input
-              type="checkbox"
-              id="show-password"
-              onclick="togglePassword()"
-            />
-          </div>
+                <!-- Checkbox for Education Level -->
+                <div class="mb-3">
+                    <label>Tamatan Sekolah:</label>
+                    <div>
+                        <input type="checkbox" id="sd" name="education[]" value="SD" />
+                        <label for="sd">SD</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="smp" name="education[]" value="SMP" />
+                        <label for="smp">SMP</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="sma" name="education[]" value="SMA" />
+                        <label for="sma">SMA</label>
+                    </div>
+                </div>
 
-          <!-- Checkbox for Education Level -->
-          <div class="input-group">
-            <label>Tamatan Sekolah:</label>
-            <div>
-              <input type="checkbox" id="sd" name="education[]" value="SD" />
-              <label for="sd">SD</label>
+                <!-- Radio Buttons for Gender -->
+                <div class="mb-3">
+                    <label>Gender:</label>
+                    <div>
+                        <input type="radio" id="male" name="gender" value="male" required />
+                        <label for="male">Male</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="female" name="gender" value="female" required />
+                        <label for="female">Female</label>
+                    </div>
+                </div>
+
+                <!-- File Picker for Uploading a File -->
+                <div class="mb-3">
+                    <label for="file" class="form-label">Upload File:</label>
+                    <input type="file" class="form-control" id="file" name="file" required />
+                </div>
+
+                <!-- Select Option for Province -->
+                <div class="mb-3">
+                    <label for="province" class="form-label">Select Province:</label>
+                    <select class="form-select" id="province" name="province" required>
+                        <option value="">--Choose a Province--</option>
+                        <option value="aceh">Aceh</option>
+                        <option value="bali">Bali</option>
+                        <option value="jakarta">Jakarta</option>
+                        <option value="jawa-barat">Jawa Barat</option>
+                        <option value="jawa-timur">Jawa Timur</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-success btn-block">Register</button>
+            </form>
+            <div class="register-link text-center mt-3">
+                <p>Already have an account? <a href="#" class="text-success">Log in here</a>.</p>
             </div>
-            <div>
-              <input type="checkbox" id="smp" name="education[]" value="SMP" />
-              <label for="smp">SMP</label>
-            </div>
-            <div>
-              <input type="checkbox" id="sma" name="education[]" value="SMA" />
-              <label for="sma">SMA</label>
-            </div>
-          </div>
-
-          <!-- Radio Buttons for Gender -->
-          <div class="input-group">
-            <label>Gender:</label>
-            <div>
-              <input
-                type="radio"
-                id="male"
-                name="gender"
-                value="male"
-                required
-              />
-              <label for="male">Male</label>
-            </div>
-            <div>
-              <input
-                type="radio"
-                id="female"
-                name="gender"
-                value="female"
-                required
-              />
-              <label for="female">Female</label>
-            </div>
-          </div>
-
-          <!-- File Picker for Uploading a File -->
-          <div class="input-group">
-            <label for="file">Upload File:</label>
-            <input type="file" id="file" name="file" required />
-          </div>
-
-          <!-- Select Option for Province -->
-          <div class="input-group">
-            <label for="province">Select Province:</label>
-            <select id="province" name="province" required>
-              <option value="">--Choose a Province--</option>
-              <option value="aceh">Aceh</option>
-              <option value="bali">Bali</option>
-              <option value="jakarta">Jakarta</option>
-              <option value="jawa-barat">Jawa Barat</option>
-              <option value="jawa-timur">Jawa Timur</option>
-              <!-- Add more provinces as needed -->
-            </select>
-          </div>
-
-          <button type="submit" class="btn-login" value="submit">
-            Register
-          </button>
-        </form>
-        <div class="register-link">
-          <p>Already have an account? <a href="#">Log in here</a>.</p>
         </div>
-      </div>
     </div>
 
     <!-- Link to external JavaScript file -->
     <script src="script.js"></script>
-  </body>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
 </html>

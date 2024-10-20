@@ -27,21 +27,6 @@ header h1.logo {
   font-size: 24px;
 }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  margin-right: 20px;
-}
-
-nav ul li {
-  margin-left: 20px;
-}
-
-nav ul li a {
-  color: #fff;
-  text-decoration: none;
-}
-
 .hero {
   background: #4caf50;
   color: #fff;
@@ -57,7 +42,27 @@ nav ul li a {
 .hero p {
   font-size: 18px;
 }
+.password-container {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Jarak antara input dan checkbox */
+}
 
+input[type="password"],
+input[type="text"] {
+  flex: 1; /* Buat input mengambil ruang yang tersisa */
+  padding: 10px;
+  box-sizing: border-box; /* Termasuk padding dalam ukuran total */
+}
+
+.show-password-container {
+  display: flex;
+  align-items: center;
+}
+input[type="file"] {
+  margin-top: 10px;
+  padding: 10px; /* Tambahkan padding untuk konsistensi */
+}
 .btn,
 .btn-login {
   display: inline-block;
@@ -74,30 +79,19 @@ nav ul li a {
   margin-left: 10px;
 }
 
-#about,
-#services,
-#contact {
+#about {
   padding: 40px 20px;
   background: #fff;
 }
 
-#about h2,
-#services h2,
-#contact h2 {
+#about h2 {
   text-align: center;
   margin-bottom: 20px;
 }
 
-.service-item {
-  margin-bottom: 20px;
-}
-
-footer {
-  background: #333;
-  color: #fff;
+.footer {
   text-align: center;
-  padding: 20px;
-  margin-top: 20px;
+  margin: 30px;
 }
 
 .container {
@@ -106,4 +100,18 @@ footer {
   padding: 0 20px;
 }
 
-/* login css */
+.footer h2 {
+  margin-bottom: 20px;
+  justify-items: center;
+}
+.social-media-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-button img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s;
+}
